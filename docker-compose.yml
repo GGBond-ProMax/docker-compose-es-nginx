@@ -11,7 +11,7 @@ services:
       - /nginxdatadir/logs:/var/log/nginx        # 绑定日志目录
 
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.19
+    image: elasticsearch:7.17.19
     container_name: elasticsearch
     environment:
       - discovery.type=single-node
