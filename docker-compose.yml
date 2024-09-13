@@ -4,7 +4,6 @@ services:
     container_name: nginx-server
     ports:
       - "80:80"
-      - "443:443"
     volumes:
       - /nginxdatadir/conf:/etc/nginx  # 绑定本地 Nginx 配置文件目录
       - /nginxdatadir/html:/usr/share/nginx/html # 绑定本地静态文件目录
@@ -13,10 +12,6 @@ services:
   elasticsearch:
     image: elasticsearch:7.17.19
     container_name: elasticsearch
-    environment:
-      - discovery.type=single-node
-      - ES_JAVA_OPTS=-Xms1g -Xmx1g
-      - xpack.security.enabled=false       # 禁用 xpack 安全功能，适合开发环境
     ports:
       - "9200:9200"
       - "9300:9300"
