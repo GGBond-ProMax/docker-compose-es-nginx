@@ -9,10 +9,6 @@ services:
       - /nginxdatadir/conf:/etc/nginx  # 绑定本地 Nginx 配置文件目录
       - /nginxdatadir/html:/usr/share/nginx/html # 绑定本地静态文件目录
       - /nginxdatadir/logs:/var/log/nginx        # 绑定日志目录
-    depends_on:
-      - elasticsearch
-    networks:
-      - es_network
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.17.19
@@ -28,9 +24,4 @@ services:
       - /esdatadir/data:/usr/share/elasticsearch/data
       - /esdatadir/logs:/usr/share/elasticsearch/logs
       - /esdatadir/config:/usr/share/elasticsearch/config
-    networks:
-      - es_network
 
-networks:
-  es_network:
-    driver: bridge
