@@ -1,0 +1,10 @@
+http.cors.enabled: true
+http.cors.allow-origin: "*"
+#cluster.name: docker-cluster
+network.host: 0.0.0.0
+http.port: 9200
+path.repo: ["/usr/share/elasticsearch/snapshot"]
+http.cors.allow-headers: Authorization
+xpack.security.enabled: true
+xpack.security.transport.ssl.enabled: true
+ingest.geoip.downloader.enabled: false
